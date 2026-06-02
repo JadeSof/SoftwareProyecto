@@ -4,11 +4,13 @@ public class Materia {
     private int id;
     private String nombre;
     private int creditos;
+    private int semestre;
 
-    public Materia(int id, String nombre, int creditos) {
+    public Materia(int id, String nombre, int creditos, int semestre) {
         this.id = id;
         this.nombre = nombre;
         this.creditos = creditos;
+        this.semestre = semestre;
     }
 
     public int getId() {
@@ -23,4 +25,7 @@ public class Materia {
         return creditos;
     }
 
+    public int getSemestre() {
+        return semestre;
+    }
 }
