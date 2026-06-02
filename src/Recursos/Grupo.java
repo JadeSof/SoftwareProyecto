@@ -1,19 +1,19 @@
 package Recursos;
 
 public class Grupo {
-    private int id, cupo;
+    private int id, cupo, alumnosInscritos, horario;
     private Materia materia;
     private Docente docente;
-    private Periodo periodo;
     private Aula aula;
 
-    public Grupo(int id, int cupo, Materia materia, Docente docente, Periodo periodo, Aula aula) {
+    public Grupo(int id, int cupo, Materia materia, Docente docente, Aula aula, int horario) {
         this.id = id;
         this.cupo = cupo;
         this.materia = materia;
         this.docente = docente;
-        this.periodo = periodo;
         this.aula = aula;
+        this.horario = horario;
+        this.alumnosInscritos = 0;
     }
 
     public int getId() {
@@ -32,12 +32,16 @@ public class Grupo {
         return docente;
     }
 
-    public Periodo getPeriodo() {
-        return periodo;
-    }
-
     public Aula getAula() {
         return aula;
+    }
+
+    public int getAlumnosInscritos() {
+        return alumnosInscritos;
+    }
+
+    public int getHorario() {
+        return horario;
     }
 
 }

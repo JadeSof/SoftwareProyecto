@@ -26,4 +26,8 @@ public class Periodo {
         this.estado = estado;
     }
 
+    public String toString() {
+        return fechaIni + "-" + fechaFin;
+    }
+
 }
