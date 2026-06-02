@@ -26,7 +26,6 @@ public class GruposDisponibles {
             }
         }
 
-        // Regresa la aula si esta disponible en ese horario y periodo
         return aulaDisponible;
     }
 
@@ -40,7 +39,6 @@ public class GruposDisponibles {
             }
         }
 
-        // Regresa el docente si esta disponible en ese horario y periodo
         return docenteDisponible;
     }
 
@@ -48,4 +46,15 @@ public class GruposDisponibles {
         return periodo;
     }
 
-}
+    public Grupo buscarGrupoPorId(int idGrupo) {
+        for (Grupo g : grupos) {
+            if (g.getId() == idGrupo) {
+                return g;
+            }
+        }
+        return null;
+    }
+
+    public List<Grupo> obtenerGrupos() {
+        return grupos;
+    }
