@@ -12,23 +12,24 @@ public class ControladorOferta {
         this.materiasRegistradas = RecursosCarga.getMateriasRegistradas();
     }
 
-    public synchronized boolean IntroducirDatos(String claveMateria, String claveGrupo, String horario, String docente,
-            String aula,
-            String periodo, int cupo) {
-        if (claveMateria.isEmpty() || claveGrupo.isEmpty() || horario.isEmpty() || docente.isEmpty() || aula.isEmpty()
-                || periodo.isEmpty() || cupo <= 0) {
+    public synchronized boolean IntroducirDatos(String claveMateria, String claveGrupo, String horario,
+            String idDocente,
+            String idAula, int cupo) {
+        if (claveMateria.isEmpty() || claveGrupo.isEmpty() || horario.isEmpty() || idDocente.isEmpty()
+                || idAula.isEmpty() || cupo <= 0) {
             msg = "Todos los campos deben ser llenados.";
             return false;
         }
         // Validar que el aula no este ocupada en el mismo horario y periodo
         Aula aulaDisponible;
-        if ((aulaDisponible = gruposDisponibles.validaDisponibilidadDeAula(aula, Integer.parseInt(horario))) == null) {
+        if ((aulaDisponible = gruposDisponibles.validaDisponibilidadDeAula(idAula,
+                Integer.parseInt(horario))) == null) {
             msg = "El aula ya está ocupada en ese horario y periodo.";
             return false;
         }
         // Validar que el docente no este ocupado en el mismo horario y periodo
         Docente docenteDisponible;
-        if ((docenteDisponible = gruposDisponibles.validaHorarioDocente(Integer.parseInt(docente),
+        if ((docenteDisponible = gruposDisponibles.validaHorarioDocente(Integer.parseInt(idDocente),
                 Integer.parseInt(horario))) == null) {
             msg = "El docente ya está ocupado en ese horario.";
             return false;
