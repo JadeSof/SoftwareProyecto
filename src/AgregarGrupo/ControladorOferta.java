@@ -12,7 +12,8 @@ public class ControladorOferta {
         this.materiasRegistradas = RecursosCarga.getMateriasRegistradas();
     }
 
-    public boolean IntroducirDatos(String claveMateria, String claveGrupo, String horario, String docente, String aula,
+    public synchronized boolean IntroducirDatos(String claveMateria, String claveGrupo, String horario, String docente,
+            String aula,
             String periodo, int cupo) {
         if (claveMateria.isEmpty() || claveGrupo.isEmpty() || horario.isEmpty() || docente.isEmpty() || aula.isEmpty()
                 || periodo.isEmpty() || cupo <= 0) {
